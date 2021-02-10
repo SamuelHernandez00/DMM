@@ -17,11 +17,15 @@ class CreatePostsTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('slug');
-            $table->string('descripcion');
+            $table->string('autor');
+            $table->text('descripcion');
             $table->string('image');
             $table->string('metatag');
+            $table->datetime('date');
             //Declarar llaves foraneas
+            $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('category_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('category_id')->references('id')->on('categories');
 
             $table->timestamps();
