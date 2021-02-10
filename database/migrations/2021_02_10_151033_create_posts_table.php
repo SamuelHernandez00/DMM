@@ -22,7 +22,7 @@ class CreatePostsTable extends Migration
             $table->string('metatag');
             //Declarar llaves foraneas
             $table->unsignedBigInteger('category_id');
-            $table->foreign('category_id')->reference('id')->on('categories');
+            $table->foreign('category_id')->references('id')->on('categories');
 
             $table->timestamps();
         });
